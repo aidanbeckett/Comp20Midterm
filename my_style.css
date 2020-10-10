@@ -1,1 +1,75 @@
+/*  Body styling */
+body {
+    background-color: navy;
+}
 
+/* NavBar container */
+.navbar {
+    text-align: center;
+}
+
+/* Link Styling for Navbar Link item */
+.navbar a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(0,0,0);
+    font-size: 32px;
+    font-weight: 700;
+    padding: 16px;
+    display: inline-block;
+}
+
+/* Navbar links on hover */
+.navbar a:hover {
+    background-color: lightblue;
+}
+
+/* The container for dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: inherit;
+    color: white;
+    border: none;
+}
+
+  
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: inherit;
+    min-width: 156px;
+    z-index: 1;
+}
+  
+/* Links inside the dropdown */
+.dropdown-content a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(0,0,0);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px;
+    display: block;
+}
+
+/* Dropdown links on hover */
+.dropdown-content a:hover {
+      background-color: lightblue;
+}
+  
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  
+/* Change color of the button when the Drop Down Content is shown */
+.dropdown:hover .dropbtn {
+    background-color: lightblue;
+}
