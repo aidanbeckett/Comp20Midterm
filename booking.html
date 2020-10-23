@@ -6,6 +6,47 @@
     <meta name="author" content="Eric, Jessica, Aidan, Pan">	
     <title>Boston Banquets</title>
     <link rel="stylesheet" href="my_style.css">
+    
+    <style>
+      form {
+        background-color: lightblue;
+      }
+    </style>
+    
+    <script language="javascript">
+    
+      //display dates based on space (and hide continue button)
+      function nextForm()
+      {
+        space = document.getElementById("space").value;
+        document.getElementById("date").style.display = "block";
+        document.getElementById("dates").style.display = "block";
+        document.getElementById("c").style.display = "none";
+      }
+      
+      function complete()
+      {
+        space = document.getElementById("space").value;
+        name  = document.getElementById("name").value;
+        phone = document.getElementById("phone").value;
+        email = document.getElementById("mail").value;
+        date  = document.getElementById("day").value;
+        document.getElementById("form").style.display = "none";
+        
+        message = document.getElementById("submission message")
+        message.innerHTML = "You are all done, " +name+ "! You have booked the " +space+" for " + date + ", and a confirmation email will be sent to " + email + ".";
+      }
+      
+      window.onload = function() {
+        document.getElementById("date").style.display = "none";
+        document.getElementById("dates").style.display = "none";
+        btn = document.getElementById("continue");
+        btn.addEventListener("click",nextForm);
+        done = document.getElementById("confirm");
+        done.addEventListener("click",complete);
+      }
+    
+    </script>
 </head>
 <body>
     <header>
@@ -24,8 +65,47 @@
             </div>
             <a href = "booking.html">Booking</a>
             <a href = "events.html">Events</a>
-	</nav>
+	       </nav>
     </header>
+    
+    <p class="large">Book Your Space Now!</p>
+    <p id="submission message"></p>
+    <form id="form">
+      <table style="width:100%">
+        <tr>
+          <td>Name</td> 
+          <td><input type="text" id="name" name="name" value=""></td>
+        </tr>
+        <tr>
+          <td>Phone Number</td> 
+          <td><input type="tel" id="phone" name="phone" value=""></td>
+        </tr>
+        <tr>
+          <td>Email Address</td> 
+          <td><input type="email" id="mail" name="mail" value=""></td>
+        </tr>
+        <tr>
+          <td>Space</td> 
+          <td>
+            <select id="space" name="space">
+              <option value="Auditorium">Auditorium</option>
+              <option value="Ballroom">Ballroom</option>
+              <option value="Office Space">Office Space</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td id="date">Date</td> 
+          <td id="dates">
+            <input type="date" id="day" name="day">
+            <input type="button" id="confirm" name="confirm" value="Confirm">
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p style="text-align:center" id="c"><input type="button" id="continue" name="continue" value="Continue"></p>
+    </form>
+    
     <footer class = "footer">
         <p>Boston Banquets</p>
         <p>419 Boston Ave, Medford, MA 02155</p>
