@@ -23,6 +23,7 @@ footer {
 /* NavBar container */
 .navbar {
     text-align: center;
+    background-color: #63dbff;
 }
 
 /* Link Styling for Navbar Link item */
