@@ -2,7 +2,7 @@
 
 /*  Body styling */
 body {
-    background-color: #63dbff;
+    background-color: white;
 }
 
 /* large and centered text class */
@@ -88,4 +88,8 @@ footer {
 /* Change color of the button when the Drop Down Content is shown */
 .dropdown:hover .dropbtn {
     background-color: lightblue;
+}
+
+header {
+    background-color: #63dbff;
 }
