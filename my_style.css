@@ -23,7 +23,6 @@ footer {
 /* NavBar container */
 .navbar {
     text-align: center;
-    background-color: #63dbff;
 }
 
 /* Link Styling for Navbar Link item */
@@ -46,6 +45,7 @@ footer {
 .dropdown {
     position: relative;
     display: inline-block;
+    background-color: #63dbff;
 }
   
 
