@@ -219,3 +219,24 @@ ul.features li img{
 	height: 300px;
 	object-fit: cover;
 }
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky img {
+    width: 15%
+}
+
+/* Add some top padding to the page content */
+.sticky + .content {
+  padding-top: 260px;
+}
