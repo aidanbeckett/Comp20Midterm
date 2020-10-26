@@ -69,10 +69,12 @@
         document.getElementById("another").style.display = "none";
         document.getElementById("submission message").style.display = "none";
         document.getElementById("form").style.display = "block";
-        document.getElementById("name").value = "";
-        document.getElementById("phone").value = "";
-        document.getElementById("mail").value = "";
-        document.getElementById("day").value = "";
+        
+        //erase previous info
+        var info = ["name","phone","mail","day"];
+        for (var i = 0; i < info.length; i++) {
+          document.getElementById(info[i]).value = "";
+        }
       }
       
       window.onload = function() {
