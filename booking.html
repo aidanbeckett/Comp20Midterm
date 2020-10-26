@@ -11,7 +11,20 @@
       form {
         background-color: lightblue;
       }
+      input[type="button"] {
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+      }
+      input[type="date"] {
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+      }
+      option {
+        font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+      }
     </style>
+    
+    <!--for jQuery effect-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     
     <script language="javascript">
     
@@ -29,13 +42,13 @@
         msg   = "";
         
         if (name == "") 
-          msg = "You must fill out your name.";
+          msg = "Please enter your name.";
         else if (!phone.match(pForm))
-          msg = "Please make sure you include the area code of your phone number. (XXX-XXX-XXXX)"
+          msg = "Please make sure you include the area code of your phone number. (i.e. XXX-XXX-XXXX)"
         else if (!email.match(eForm))
-          msg = "Please enter a valid email. (john.smith@yahoo.com)"
-        else if (date == "")
-          msg = "Please select a date."
+          msg = "Please enter a valid email. (i.e. john.smith@yahoo.com)"
+        else if (!validDate(date))
+          msg = "Please select a valid date. (i.e. yyyy-mm-dd)"
         else
           isValid = true;
 
@@ -43,9 +56,41 @@
           complete();
         }
         else {
+          //jQuery shake effect to get user's attention
+          $( ".target" ).effect("shake");
+          
           document.getElementById("warning").innerHTML = "Form Submission Unsuccessful";
           document.getElementById("message").innerHTML = msg;
         }
+      }
+      
+      //valid date 
+      function validDate(date)
+      {
+        if (date.length != 10)
+          return false;
+        else {
+          year  = date.slice(0,4);
+          month = date.slice(5,7);
+          day   = date.slice(8);
+          
+          if ((year.length != 4) || (month.length != 2) || (day.length != 2))
+            return false;
+          else if ((parseInt(year) < 2020) || (parseInt(year) > 2050))
+            return false;
+          else if ((parseInt(month) < 1) || (parseInt(month) > 12))
+            return false;
+          else if (parseInt(day) < 0 || parseInt(day) > 31)
+            return false;
+          else if (parseInt(month) == 4 || parseInt(month) == 6 || parseInt(month) == 9 || parseInt(month) == 11) {
+            if (parseInt(day) > 30)
+              return false;
+          }
+          else if (parseInt(month) == 2 && parseInt(day) > 28)
+            return false;
+        }
+        
+        return true;
       }
       
       //completion confirmation
@@ -118,7 +163,7 @@
     <p id="another" style="text-align:center">
       <input type="button" id="another" name="another" value="New Booking">
     </p>
-    <form id="form">
+    <div class="target"><form id="form">
       <table style="width:100%">
         <tr>
           <td>Name</td> 
@@ -153,7 +198,7 @@
       <p style="text-align:center;color:red" id="warning"></p> 
       <p style="text-align:center;color:red" id="message"></p> 
       <p style="text-align:center"><input type="button" id="confirm" name="confirm" value="Confirm"></p>
-    </form>
+    </form></div>
     
     <footer class = "footer">
         <p>Boston Banquets</p>
