@@ -15,15 +15,40 @@
     
     <script language="javascript">
     
-      //display dates based on space (and hide continue button)
-      function nextForm()
+      var isValid = false;  //track whether form has been validated
+      var pForm   = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/; //phone # format
+      var eForm   = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; //email format
+      
+      //validate responses
+      function validateForm() 
       {
-        space = document.getElementById("space").value;
-        document.getElementById("date").style.display = "block";
-        document.getElementById("dates").style.display = "block";
-        document.getElementById("c").style.display = "none";
+        name  = document.getElementById("name").value;
+        phone = document.getElementById("phone").value;
+        email = document.getElementById("mail").value;
+        date  = document.getElementById("day").value;
+        msg   = "";
+        
+        if (name == "") 
+          msg = "You must fill out your name.";
+        else if (!phone.match(pForm))
+          msg = "Please make sure you include the area code of your phone number. (XXX-XXX-XXXX)"
+        else if (!email.match(eForm))
+          msg = "Please enter a valid email. (john.smith@yahoo.com)"
+        else if (date == "")
+          msg = "Please select a date."
+        else
+          isValid = true;
+
+        if (isValid) {
+          complete();
+        }
+        else {
+          document.getElementById("warning").innerHTML = "Form Submission Unsuccessful";
+          document.getElementById("message").innerHTML = msg;
+        }
       }
       
+      //completion confirmation
       function complete()
       {
         space = document.getElementById("space").value;
@@ -35,15 +60,27 @@
         
         message = document.getElementById("submission message")
         message.innerHTML = "You are all done, " +name+ "! You have booked the " +space+" for " + date + ", and a confirmation email will be sent to " + email + ".";
+        document.getElementById("another").style.display = "block";
+      }
+      
+      //new form 
+      function newForm() 
+      {
+        document.getElementById("another").style.display = "none";
+        document.getElementById("submission message").style.display = "none";
+        document.getElementById("form").style.display = "block";
+        document.getElementById("name").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("mail").value = "";
+        document.getElementById("day").value = "";
       }
       
       window.onload = function() {
-        document.getElementById("date").style.display = "none";
-        document.getElementById("dates").style.display = "none";
-        btn = document.getElementById("continue");
-        btn.addEventListener("click",nextForm);
+        document.getElementById("another").style.display = "none";
         done = document.getElementById("confirm");
-        done.addEventListener("click",complete);
+        done.addEventListener("click",validateForm);
+        another = document.getElementById("another");
+        another.addEventListener("click",newForm);
       }
     
     </script>
@@ -74,7 +111,10 @@
     </header>
     
     <h1 style="text-align:center">Book Your Space Now!</h1>
-    <p id="submission message"></p>
+    <p id="submission message" style="text-align:center"></p>
+    <p id="another" style="text-align:center">
+      <input type="button" id="another" name="another" value="New Booking">
+    </p>
     <form id="form">
       <table style="width:100%">
         <tr>
@@ -83,11 +123,17 @@
         </tr>
         <tr>
           <td>Phone Number</td> 
-          <td><input type="tel" id="phone" name="phone" value=""></td>
+          <td><input type="text" id="phone" name="phone" value=""></td>
         </tr>
         <tr>
           <td>Email Address</td> 
-          <td><input type="email" id="mail" name="mail" value=""></td>
+          <td><input type="text" id="mail" name="mail" value=""></td>
+        </tr>
+        <tr>
+          <td>Date</td> 
+          <td>
+            <input type="date" id="day" name="day">
+          </td>
         </tr>
         <tr>
           <td>Space</td> 
@@ -99,16 +145,11 @@
             </select>
           </td>
         </tr>
-        <tr>
-          <td id="date">Date</td> 
-          <td id="dates">
-            <input type="date" id="day" name="day">
-            <input type="button" id="confirm" name="confirm" value="Confirm">
-          </td>
-        </tr>
       </table>
       <br>
-      <p style="text-align:center" id="c"><input type="button" id="continue" name="continue" value="Continue"></p>
+      <p style="text-align:center;color:red" id="warning"></p> 
+      <p style="text-align:center;color:red" id="message"></p> 
+      <p style="text-align:center"><input type="button" id="confirm" name="confirm" value="Confirm"></p>
     </form>
     
     <footer class = "footer">
