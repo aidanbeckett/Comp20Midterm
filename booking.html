@@ -44,11 +44,11 @@
         if (name == "") 
           msg = "Please enter your name.";
         else if (!phone.match(pForm))
-          msg = "Please make sure you include the area code of your phone number. (i.e. XXX-XXX-XXXX)"
+          msg = "Please make sure you include the area code of your phone number. (i.e. XXX-XXX-XXXX)";
         else if (!email.match(eForm))
-          msg = "Please enter a valid email. (i.e. john.smith@yahoo.com)"
+          msg = "Please enter a valid email. (i.e. john.smith@yahoo.com)";
         else if (!validDate(date))
-          msg = "Please select a valid date. (i.e. yyyy-mm-dd)"
+          msg = "Please select a valid date. (i.e. yyyy-mm-dd)";
         else
           isValid = true;
 
