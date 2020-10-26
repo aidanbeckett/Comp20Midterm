@@ -15,6 +15,27 @@
       }
     </style>
    
+	<script type="text/javascript">
+        window.onload = function(){
+            window.onscroll = function() {myFunction()};
+
+            // Get the header
+            var header = document.getElementById("my_header");
+
+            // Get the offset position of the navbar
+            var sticky = header.offsetTop;
+
+            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+              if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+              } else {
+                header.classList.remove("sticky");
+              }
+            }
+        }
+    </script>
+	
 </head>
 <body>
     <header>
@@ -40,17 +61,18 @@
             <a href = "events.html">Events</a>
 	       </nav>
      </header>
-     <section>
+     <section class = "content">
        <h1 style="text-align:center">Welcome to Boston Banquets!</h1>
-       <br><br>
-       <img src="montage.jpg"/> 
-       <p class="large">Boston Banquets is here to serve your event center needs! 
+     </section>
+     <br><br>
+     <img src="montage.jpg"/> 
+     <p class="large">Boston Banquets is here to serve your event center needs! 
        Whether you are looking for a concert to attend or an office space
        to rent out, Boston Banquets has you covered! With three different
        <a href='spaces.html'>spaces available</a> and exciting events scheduled
        every week, Boston Banquets is the premier destination for Massachussets 
        affairs.</p>
-    </section>
+    
     <footer class = "footer">
       <p>Boston Banquets</p>
       <p>419 Boston Ave, Medford, MA 02155</p>
