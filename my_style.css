@@ -304,3 +304,24 @@ body {font-family: Verdana, sans-serif;}
 @media screen and (max-width: 290px) {
   .weekdays li, .days li {width: 12.2%;}
 }
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky img {
+    width: 15%
+}
+
+/* Add some top padding to the page content */
+.sticky + .content {
+  padding-top: 260px;
+}

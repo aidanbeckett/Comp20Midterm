@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Boston Banquets description">
+    <meta name="description" content="Boston Banquets Booking Page">
     <meta name="author" content="Eric, Jessica, Aidan, Pan">	
     <title>Boston Banquets</title>
     <link rel="stylesheet" href="my_style.css">
@@ -26,6 +26,7 @@
     <!--for jQuery effect-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	
     
     <script language="javascript">
     
@@ -129,12 +130,28 @@
         done.addEventListener("click",validateForm);
         another = document.getElementById("another");
         another.addEventListener("click",newForm);
+	      
+	 
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("my_header");
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+       	if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+         } else {
+                header.classList.remove("sticky");
+         }
+            
+        }
       }
     
     </script>
 </head>
 <body>
-    <header>
+    <header id = "my_header">
        <figure>
           <a href="index.html"><img src="BBLogo.png" class="center"/></a>
 
@@ -157,14 +174,14 @@
             <a href = "events.html">Events</a>
 	       </nav>
     </header>
-    <section>
+    <section class = "content">
       <h1 style="text-align:center">Book Your Space Now!</h1>
+      <p style="text-align:center">Fill out the form below to reserve a date for any of our three locations. You will receive a confirmation email when the reservation is processed.</p>
+      <p id="submission message" style="text-align:center"></p>
+      <p id="another" style="text-align:center">
+        <input type="button" id="another" name="another" value="New Booking">
+      </p>
     </section>
-    <h2 style="text-align:center">Fill out the form below to reserve a date for any of our three locations. You will receive a confirmation email when the reservation is processed.</h2>
-    <p id="submission message" style="text-align:center"></p>
-    <p id="another" style="text-align:center">
-      <input type="button" id="another" name="another" value="New Booking">
-    </p>
     <div class="target"><form id="form">
       <table style="width:100%">
         <tr>

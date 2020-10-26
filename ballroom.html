@@ -2,13 +2,31 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Boston Banquets description">
+    <meta name="description" content="Boston Banquets Ballroom Space Info Page">
     <meta name="author" content="Eric, Jessica, Aidan, Pan">	
     <title>Boston Banquets</title>
     <link rel="stylesheet" href="my_style.css">
+	
+	<script type="text/javascript">
+        window.onload = function(){
+            window.onscroll = function() {myFunction()};
+
+            var header = document.getElementById("my_header");
+            var sticky = header.offsetTop;
+
+            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+              if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+              } else {
+                header.classList.remove("sticky");
+              }
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
+    <header id ="my_header">
         <figure>
             <a href="index.html"><img src="BBLogo.png" class="center"/></a>
 
@@ -31,7 +49,7 @@
             <a href = "events.html">Events</a>
 	</nav>
     </header>
-    <section>
+    <section class = "content">
         <h1> Ballroom </h1>
         <p> Boston Banquets ballroom is our most pristine venue, having hosted some of Boston’s most celebrated and memorable events since its opening. The space is recently renovated and can has a maximum seating capacity of around 500 people. The ballroom has a main floor and stage, but also has magnificent balcony seating on the sides of the room that have a great view of the floor below. We are happy to organize any seating and floor arrangements necessary. The ballroom is suitable for a wide variety of events, such as weddings, formals, performances and any large and formal event.</p>
         <img class = "spaceImg" src="imperialballroompng.png"/> 

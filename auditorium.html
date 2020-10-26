@@ -2,13 +2,31 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Boston Banquets description">
+    <meta name="description" content="Boston Banquets Auditorium Space Info Page">
     <meta name="author" content="Eric, Jessica, Aidan, Pan">	
     <title>Boston Banquets</title>
     <link rel="stylesheet" href="my_style.css">
+	
+	<script type="text/javascript">
+        window.onload = function(){
+            window.onscroll = function() {myFunction()};
+
+            var header = document.getElementById("my_header");
+            var sticky = header.offsetTop;
+
+            // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+              if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+              } else {
+                header.classList.remove("sticky");
+              }
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
+    <header id ="my_header">
        <figure>
         <a href="index.html"><img src="BBLogo.png" class="center"/></a>
       </figure>
@@ -30,7 +48,7 @@
             <a href = "events.html">Events</a>
 	</nav>
     </header>
-    <section>
+    <section class = "content">
         <h1> BB Auditorium </h1>
         <p> Boston Banquets auditorium is excellent for any type of event. The auditorium has an excellent sound system perfect for performances and large conferences. The BB Auditorium has 180 degree seating that curves around the center stage on two different levels and can seat over 1000 people. The backstage area of the auditorium is large as well, perfect for organizing performances. With such a large capacity it is only right that the auditorium has 12 different entrances and exits, so getting guests into the auditorium is efficient as well. It is truly great for any large number of guests.</p>
         <img class = "spaceImg" src="auditorium.jpg"/> 
