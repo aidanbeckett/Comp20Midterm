@@ -102,7 +102,8 @@ header {
 }
 
 section h1 {
-    font-size: 40pt;
+	display: block;
+    font-size: 32pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     margin-left: auto;
@@ -205,8 +206,16 @@ ul.features li img{
     border-radius: 10%;
     border:2px solid rgb(42, 111, 150);
     width: 80%;
+	height: 250px;
 }
 
 .spaceImg {
     width: 80%;
+}
+
+.profile_images img{
+	float: left;
+	width: 250px;
+	height: 300px;
+	object-fit: cover;
 }
