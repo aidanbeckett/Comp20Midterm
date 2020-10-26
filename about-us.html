@@ -6,6 +6,37 @@
     <meta name="author" content="Eric, Jessica, Aidan, Pan">	
     <title>Boston Banquets</title>
     <link rel="stylesheet" href="my_style.css">
+    <style>
+        table {
+            width: 100%;
+            margin-left: 20px;
+            margin-right: 20px;
+            padding-bottom: 40px;
+            padding-top: 15px;
+            background-color: lightsteelblue;
+        }
+        table tr td {
+            width: 20%;
+            text-align: center;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-bottom: 20px;
+        }
+
+        .profile_names td{
+            font-size: 18pt;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .profile_images td img{
+            border-radius: 46%;
+            border:2px solid rgb(42, 111, 150);
+            width: 80%;
+        }
+        .profile_info td{
+            font-size: 14pt;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -34,7 +65,32 @@
     <section>
         <h1> About Us </h1>
         <p> Entering our first year of service, the Boston Banquets Hall by Elevents is committed to making your dream event come true. We’re a locally owned and operated banquet facility that caters to weddings, business events, performances and a variety of additional special occasions. We strive to create extraordinary and memorable events for our clients. We welcome you to contact us anytime to set up a private showing of our venue.</p>
-    
+    </section>
+    <section class = "our_team">
+        <h2> Our Team</h2>
+        </br>
+        </br>
+        <table>
+            <tr class="profile_names">
+                <td> Eric Toh</td>
+                <td> Panru Jing </td>
+                <td> Aidan Beckett </td>
+                <td> Jessica Nordlund </td>
+            </tr>
+            <tr class="profile_images">
+                <td > <img src = "Eric.jpeg"/></td>
+                <td> <img src = "Pan.jpg"/> </td>
+                <td> <img src = "Aidan.jpg"/> </td>
+                <td> <img src = "Jessica.jpg"/> </td>
+            </tr>
+            <tr class="profile_info">
+                <td> Hi, I am Eric Toh, a Junior studying Computer Science at Tufts University. Outside of class, I am the planning and marketing executive at Boston Banquets. Being a Boston Local it has been a dream of mine to contribute to Boston's amazing growth and culture. I hope that events organized and hosted by Boston Banquets will be able to contribute to this amazing city and continue to move it forward.</td>
+                <td> Pan's Info </td>
+                <td> Aidan's info </td>
+                <td> Jessica's info </td>
+            </tr>
+        </table>
+    </section>
     <footer class = "footer">
         <p>Boston Banquets</p>
         <p>419 Boston Ave, Medford, MA 02155</p>
